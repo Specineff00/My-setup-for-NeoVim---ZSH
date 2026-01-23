@@ -20,7 +20,7 @@ export PATH="/opt/homebrew/opt/postgresql@15/bin:$PATH"
 export GREENLIGHT_DB_DSN='postgres://greenlight:pa55word@localhost/greenlight?sslmode=disable'
 export PATH="$PATH:/opt/homebrew/lib/ruby/gems/4.0.0/bin"
 
-alias ls='colorls'
+alias ls='colorls -a'
 alias vim='nvim'
 
 eval "$(zoxide init zsh)"

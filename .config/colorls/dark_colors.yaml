@@ -1,0 +1,48 @@
+# Catppuccin Mocha theme for colorls
+
+# File types
+unrecognized_file: '#cdd6f4'  # Text
+recognized_file:   '#cdd6f4'  # Text
+executable_file:   '#a6e3a1'  # Green
+dir:               '#89b4fa'  # Blue
+
+# File permissions
+user_read:    '#f9e2af'  # Yellow
+user_write:   '#f38ba8'  # Red
+user_exec:    '#a6e3a1'  # Green
+group_read:   '#f9e2af'  # Yellow
+group_write:  '#f38ba8'  # Red
+group_exec:   '#a6e3a1'  # Green
+other_read:   '#f9e2af'  # Yellow
+other_write:  '#f38ba8'  # Red
+other_exec:   '#a6e3a1'  # Green
+
+# Special permissions
+suid:         '#fab387'  # Peach
+sgid:         '#fab387'  # Peach
+sticky:       '#fab387'  # Peach
+
+# File size
+file_large:   '#f38ba8'  # Red
+file_medium:  '#fab387'  # Peach
+file_small:   '#a6e3a1'  # Green
+
+# Date/Time
+day_old:      '#cdd6f4'  # Text
+hour_old:     '#a6e3a1'  # Green
+no_modifier:  '#6c7086'  # Overlay0
+
+# Links
+dead_link:    '#f38ba8'  # Red
+link:         '#f5c2e7'  # Pink
+
+# Tree
+tree:         '#6c7086'  # Overlay0
+empty:        '#6c7086'  # Overlay0
+
+# Git
+addition:     '#a6e3a1'  # Green
+modification: '#f9e2af'  # Yellow
+deletion:     '#f38ba8'  # Red
+untracked:    '#fab387'  # Peach
+unchanged:    '#cdd6f4'  # Text
