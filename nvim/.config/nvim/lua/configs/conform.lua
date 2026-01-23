@@ -3,8 +3,7 @@ local options = {
     lua = { "stylua" },
     go = { "gofumpt", "goimports" },
     sql = {},
-    -- css = { "prettier" },
-    -- html = { "prettier" },
+    swift = { "swift_format" },
   },
 
   format_on_save = function(bufnr)

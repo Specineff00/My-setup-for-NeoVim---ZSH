@@ -13,5 +13,5 @@ vim.lsp.config('*', {
 })
 
 -- Enable servers
-local servers = { "html", "cssls", "gopls", "sqls" }
+local servers = { "html", "cssls", "gopls", "sqls", "sourcekit" }
 vim.lsp.enable(servers)
