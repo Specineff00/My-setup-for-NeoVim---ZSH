@@ -118,3 +118,17 @@ map("n", "<leader>1", function() harpoon:list():select(1) end, { desc = "Harpoon
 map("n", "<leader>2", function() harpoon:list():select(2) end, { desc = "Harpoon file 2" })
 map("n", "<leader>3", function() harpoon:list():select(3) end, { desc = "Harpoon file 3" })
 map("n", "<leader>4", function() harpoon:list():select(4) end, { desc = "Harpoon file 4" })
+
+-- ============================================================================
+-- Trouble - Diagnostics panel
+-- ============================================================================
+map("n", "<leader>tt", "<cmd>Trouble diagnostics toggle<cr>", { desc = "Trouble: Diagnostics" })
+map("n", "<leader>tb", "<cmd>Trouble diagnostics toggle filter.buf=0<cr>", { desc = "Trouble: Buffer" })
+map("n", "<leader>ts", "<cmd>Trouble symbols toggle<cr>", { desc = "Trouble: Symbols" })
+map("n", "<leader>tr", "<cmd>Trouble lsp_references toggle<cr>", { desc = "Trouble: References" })
+map("n", "<leader>td", "<cmd>Trouble todo toggle<cr>", { desc = "Trouble: TODOs" })
+
+-- ============================================================================
+-- LazyGit - GIT GUI
+-- ============================================================================
+map("n", "<leader>lg", "<cmd>LazyGit<cr>", { desc = "LazyGit" })
