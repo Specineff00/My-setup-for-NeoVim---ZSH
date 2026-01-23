@@ -99,7 +99,6 @@ require "nvchad.mappings"
 --   harpoon:list():select(1)  -- passes harpoon as 'self' internally
 --
 -- ============================================================================
-
 local map = vim.keymap.set
 
 -- Basic mappings
@@ -132,3 +131,9 @@ map("n", "<leader>td", "<cmd>Trouble todo toggle<cr>", { desc = "Trouble: TODOs"
 -- LazyGit - GIT GUI
 -- ============================================================================
 map("n", "<leader>lg", "<cmd>LazyGit<cr>", { desc = "LazyGit" })
+
+-- ============================================================================
+-- NVIMTree - File explorer (remapped due to Zellij Ctrl+n)
+-- ============================================================================
+map("n", "<leader>n", "<cmd>NvimTreeToggle<cr>", { desc = "NvimTree toggle" })
+vim.keymap.del("n", "<C-n>") -- Delete for safety 

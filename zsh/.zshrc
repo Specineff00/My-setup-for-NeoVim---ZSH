@@ -5,9 +5,6 @@
 export ZSH="$HOME/.oh-my-zsh"
 
 ZSH_THEME="catppuccin"
-CATPPUCCIN_FLAVOR="mocha" # Required! Options: mocha, flappe, macchiato, latte
-CATPPUCCIN_SHOW_TIME=true  # Optional! If set to true, this will add the current time to the prompt.
-CATPPUCCIN_SHOW_HOSTNAME="never"  # Optional! Options: never, always, ssh
 
 source $ZSH/oh-my-zsh.sh
 
@@ -22,6 +19,8 @@ export PATH="$PATH:/opt/homebrew/lib/ruby/gems/4.0.0/bin"
 
 alias ls='colorls -a'
 alias vim='nvim'
+alias lg='lazygit'
+alias lql='lazysql'
 
 eval "$(zoxide init zsh)"
 source <(fzf --zsh)
