@@ -22,43 +22,6 @@ return {
   		},
   	},
   },
-
-  {
-    "ThePrimeagen/harpoon",
-    branch = "harpoon2",
-    dependencies = { "nvim-lua/plenary.nvim" },
-    config = function()
-      require("harpoon"):setup()
-    end,
-  },
-
--- Pretty TODO/FIXME highlighting
-{
-  "folke/todo-comments.nvim",
-  event = "BufRead",
-  config = true,
-},
-
-  -- Surround text objects (cs"' to change " to ')
--- Command	Before	      After
--- cs"'	    "hello"	      'hello'
--- cs"(	    "hello"	      (hello)
--- ds"	    "hello"	      hello
--- ysiw"	  hello	        "hello"
--- yss)	    hello world	  (hello world)
-{
-  "kylechui/nvim-surround",
-  event = "BufRead",
-  config = true,
-},
-
--- Better diagnostics list
-{
-  "folke/trouble.nvim",
-  cmd = "Trouble",
-  config = true,
-},
-
   -- LazyGit inside Neovim
 {
   "kdheepak/lazygit.nvim",

@@ -137,3 +137,13 @@ map("n", "<leader>lg", "<cmd>LazyGit<cr>", { desc = "LazyGit" })
 -- ============================================================================
 map("n", "<leader>n", "<cmd>NvimTreeToggle<cr>", { desc = "NvimTree toggle" })
 vim.keymap.del("n", "<C-n>") -- Delete for safety 
+
+-- ============================================================================
+-- Terminal Mode - Navigate between splits
+-- ============================================================================
+-- These allow using Ctrl+hjkl to move between splits even in terminal mode
+-- <C-\><C-n> exits terminal mode first, then <C-w>h moves to the left split
+map("t", "<C-h>", [[<C-\><C-n><C-w>h]], { silent = true, desc = "Terminal: Move to left split" })
+map("t", "<C-j>", [[<C-\><C-n><C-w>j]], { silent = true, desc = "Terminal: Move to bottom split" })
+map("t", "<C-k>", [[<C-\><C-n><C-w>k]], { silent = true, desc = "Terminal: Move to top split" })
+map("t", "<C-l>", [[<C-\><C-n><C-w>l]], { silent = true, desc = "Terminal: Move to right split" })
