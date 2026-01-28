@@ -147,3 +147,43 @@ map("t", "<C-h>", [[<C-\><C-n><C-w>h]], { silent = true, desc = "Terminal: Move 
 map("t", "<C-j>", [[<C-\><C-n><C-w>j]], { silent = true, desc = "Terminal: Move to bottom split" })
 map("t", "<C-k>", [[<C-\><C-n><C-w>k]], { silent = true, desc = "Terminal: Move to top split" })
 map("t", "<C-l>", [[<C-\><C-n><C-w>l]], { silent = true, desc = "Terminal: Move to right split" })
+
+-- ============================================================================
+-- DAP (Debugging) - Full debugging controls
+-- ============================================================================
+local dap = require("dap")
+local dapui = require("dapui")
+
+-- Breakpoint Management
+map("n", "<leader>db", dap.toggle_breakpoint, { desc = "DAP: Toggle Breakpoint" })
+map("n", "<leader>dB", function()
+  dap.set_breakpoint(vim.fn.input("Breakpoint condition: "))
+end, { desc = "DAP: Conditional Breakpoint" })
+map("n", "<leader>dc", dap.clear_breakpoints, { desc = "DAP: Clear All Breakpoints" })
+
+-- Debug Session Control
+map("n", "<leader>dr", dap.continue, { desc = "DAP: Start/Continue" })
+map("n", "<leader>dt", dap.terminate, { desc = "DAP: Terminate" })
+map("n", "<leader>dR", dap.restart, { desc = "DAP: Restart" })
+
+-- Stepping
+map("n", "<leader>di", dap.step_into, { desc = "DAP: Step Into" })
+map("n", "<leader>do", dap.step_over, { desc = "DAP: Step Over" })
+map("n", "<leader>dO", dap.step_out, { desc = "DAP: Step Out" })
+map("n", "<leader>dC", dap.run_to_cursor, { desc = "DAP: Run to Cursor" })
+
+-- UI Controls
+map("n", "<leader>du", dapui.toggle, { desc = "DAP: Toggle UI" })
+map("n", "<leader>de", dapui.eval, { desc = "DAP: Evaluate Expression" })
+map("v", "<leader>de", dapui.eval, { desc = "DAP: Evaluate Selection" })
+
+-- Go-specific (optional)
+map("n", "<leader>dgt", function()
+  require("dap-go").debug_test()
+end, { desc = "DAP: Debug Go Test" })
+map("n", "<leader>dgl", function()
+  require("dap-go").debug_last_test()
+end, { desc = "DAP: Debug Last Go Test" })
+map("n", "<leader>dw", function()
+  require("dapui").elements.watches.add()
+end, { desc = "DAP: Add Watch" })
