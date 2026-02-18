@@ -39,5 +39,5 @@ vim.lsp.config('*', {
 -- Enable servers
 -- Servers with built-in configs: html, cssls, gopls, etc.
 -- Custom servers need a matching lsp/servername.lua file
-local servers = { "html", "cssls", "gopls", "sqls", "sourcekit" }
+local servers = { "html", "cssls", "gopls", "sqls", "sourcekit", "graphql" }
 vim.lsp.enable(servers)

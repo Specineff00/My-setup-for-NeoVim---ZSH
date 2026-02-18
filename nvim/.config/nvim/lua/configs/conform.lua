@@ -4,6 +4,7 @@ local options = {
     go = { "gofumpt", "goimports" },
     sql = {},
     swift = { "swift_format" },
+    graphql = { "prettier" }
   },
 
   format_on_save = function(bufnr)
