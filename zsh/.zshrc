@@ -14,7 +14,11 @@ source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 export PATH="/opt/homebrew/Cellar/postgresql@18/18.1_1/bin:$PATH"
 export PATH="/opt/homebrew/opt/postgresql@15/bin:$PATH"
+
 export GREENLIGHT_DB_DSN='postgres://greenlight:pa55word@localhost/greenlight?sslmode=disable'
+export KHADGAR_DB_DSN='postgres://dadgar:chadgar@localhost:5432/athenaeum?sslmode=disable'
+export KHADGAR_DOCKER_DSN='postgres://dadgar:chadgar@localhost:5433/athenaeum?sslmode=disable'
+
 export PATH="$PATH:/opt/homebrew/lib/ruby/gems/4.0.0/bin"
 
 alias ls='colorls -a'

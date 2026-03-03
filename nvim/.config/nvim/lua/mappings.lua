@@ -187,3 +187,10 @@ end, { desc = "DAP: Debug Last Go Test" })
 map("n", "<leader>dw", function()
   require("dapui").elements.watches.add()
 end, { desc = "DAP: Add Watch" })
+
+-- ============================================================================
+-- Folding - Treesitter/manual fold controls
+-- ============================================================================
+map("n", "<leader>z", "za", { desc = "Fold: Toggle" })
+map("n", "<leader>m", "zM", { desc = "Fold: Close all" })
+map("n", "<leader>r", "zR", { desc = "Fold: Open all" })

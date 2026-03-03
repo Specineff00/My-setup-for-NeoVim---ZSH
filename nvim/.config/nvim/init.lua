@@ -83,3 +83,15 @@ end)
 -- Load LuaSnip snippets from our custom snippets directory
 -- Files: lua/snippets/go.lua, lua/snippets/swift.lua, etc.
 require("luasnip.loaders.from_lua").lazy_load({ paths = vim.fn.stdpath("config") .. "/lua/snippets" })
+
+-- ============================================================================
+-- FOLDING - Treesitter-based code folding (Neovim 0.11+)
+-- ============================================================================
+
+-- Use Treesitter expression folding for syntax-aware fold regions
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+
+-- Keep folds enabled but open by default
+vim.opt.foldenable = true
+vim.opt.foldlevel = 99
