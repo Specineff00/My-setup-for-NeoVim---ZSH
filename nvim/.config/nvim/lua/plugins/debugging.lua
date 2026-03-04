@@ -9,7 +9,15 @@ return {
       },
       config = function()
         local dap = require("dap")
-  
+
+        -- Adapter for connecting to an external `dlv dap --listen=:38697` server.
+        -- Used by the "Launch via Remote Delve" config below.
+        dap.adapters["delve-remote"] = {
+          type = "server",
+          host = "127.0.0.1",
+          port = 38697,
+        }
+
         -- ========================================================================
         -- HIGHLIGHT GROUPS - Colors for breakpoints and stopped line
         -- ========================================================================
@@ -113,8 +121,7 @@ return {
             {
               -- BOTTOM PANEL (10 rows tall)
               elements = {
-                { id = "repl", size = 0.5 },    -- Debug REPL console
-                { id = "console", size = 0.5 }, -- Program output
+                { id = "repl", size = 1.0 },
               },
               size = 10,
               position = "bottom",
@@ -134,7 +141,6 @@ return {
           -- Control visibility
           controls = {
             enabled = true,
-            -- Display controls at the top of the REPL
             element = "repl",
             icons = {
               pause = "⏸",
@@ -177,67 +183,38 @@ return {
       config = function()
         require("dap-go").setup({
           -- ======================================================================
-          -- DELVE CONFIGURATION - The Go debugger
-          -- ======================================================================
-          delve = {
-            -- Path to delve binary (nil = auto-detect from $PATH)
-            path = nil,
-  
-            -- Auto-install delve if not found (requires Go toolchain)
-            initialize_timeout_sec = 20,
-  
-            -- Port for delve server (0 = random free port)
-            port = "${port}",
-  
-            -- Additional delve arguments
-            args = {},
-  
-            -- Delve build flags (passed to: go build -gcflags "...")
-            -- This disables optimizations for better debugging
-            build_flags = "",
-  
-            -- Detach from debugee on exit (true = process continues)
-            detach = true,
-  
-            -- Colorize console output
-            cwd = nil,
-          },
-  
-          -- ======================================================================
-          -- DEBUG CONFIGURATIONS - How to launch your Go programs
+          -- DEBUG CONFIGURATIONS
           -- ======================================================================
           dap_configurations = {
             {
               type = "go",
-              name = "Debug Current File",
+              name = "Debug Scraper",
               request = "launch",
-              program = "${file}", -- Debug the file you have open
-            },
-            {
-              type = "go",
-              name = "Debug Current Package",
-              request = "launch",
-              program = "${fileDirname}", -- Debug entire package
-            },
-            {
-              type = "go",
-              name = "Debug with Arguments",
-              request = "launch",
-              program = "${file}",
+              program = "./cmd/scraper",
               args = function()
-                -- Prompt for command-line arguments
-                local args_string = vim.fn.input("Arguments: ")
-                return vim.split(args_string, " ")
+                local args_string = vim.fn.input("Scraper args: ")
+                if args_string == "" then
+                  return {}
+                end
+                return vim.split(args_string, " ", { trimempty = true })
               end,
             },
-            {
-              type = "go",
-              name = "Attach to Process",
-              mode = "local",
-              request = "attach",
-              processId = require("dap.utils").pick_process,
-            },
           },
+        })
+
+        table.insert(require("dap").configurations.go, {
+          type = "delve-remote",
+          name = "Launch Scraper (Remote Delve)",
+          request = "launch",
+          mode = "debug",
+          program = "./cmd/scraper",
+          args = function()
+            local args_string = vim.fn.input("Scraper args: ")
+            if args_string == "" then
+              return {}
+            end
+            return vim.split(args_string, " ", { trimempty = true })
+          end,
         })
       end,
     },
